@@ -49,6 +49,8 @@ RUN set -ex && \
     echo "Asia/Shanghai" > /etc/timezone && \
     mkfontscale && mkfontdir && fc-cache && \
     apk del glibc-i18n && \
+    echo "http://mirrors.aliyun.com/alpine/v3.5/main" > /etc/apk/repositories && \
+    echo "http://mirrors.aliyun.com/alpine/v3.5/community" >> /etc/apk/repositories && \
     rm -rf /opt/jdk/*src.zip \
            /opt/jdk/lib/missioncontrol \
            /opt/jdk/lib/visualvm \
