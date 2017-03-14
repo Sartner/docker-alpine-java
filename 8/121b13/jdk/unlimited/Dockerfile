@@ -33,6 +33,7 @@ RUN set -ex && \
     echo "export LC_ALL=C" >> /etc/profile.d/locale.sh && \
     echo "export JAVA_HOME=/opt/jdk" >> /etc/profile.d/java.sh && \
     echo "export PATH=/opt/jdk/bin:$PATH" >> /etc/profile.d/java.sh && \
+    echo "Defaults        env_keep=\"PATH JAVA_HOME LANG LC_ALL\"" >> /etc/sudoers.d/env_keep && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
     mkdir /opt && \
     curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz \
