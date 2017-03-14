@@ -24,13 +24,15 @@ ENV JAVA_VERSION_MAJOR=8 \
 # do all in one step
 RUN set -ex && \
     apk upgrade --update && \
-    apk add --update libstdc++ curl ca-certificates bash tzdata fontconfig mkfontscale mkfontdir shadow && \
+    apk add --update libstdc++ curl ca-certificates bash tzdata fontconfig mkfontscale mkfontdir shadow sudo && \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION} glibc-i18n-${GLIBC_VERSION}; do curl -sSL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
     apk add --allow-untrusted /tmp/*.apk && \
     rm -v /tmp/*.apk && \
     ( /usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 C.UTF-8 || true ) && \
-    echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh && \
-    echo "export LC_ALL=C" > /etc/profile.d/locale.sh && \
+    echo "export LANG=C.UTF-8" >> /etc/profile.d/locale.sh && \
+    echo "export LC_ALL=C" >> /etc/profile.d/locale.sh && \
+    echo "export JAVA_HOME=/opt/jdk" >> /etc/profile.d/java.sh && \
+    echo "export PATH=/opt/jdk/bin:$PATH" >> /etc/profile.d/java.sh && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
     mkdir /opt && \
     curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz \
