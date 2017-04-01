@@ -51,6 +51,7 @@ RUN set -ex && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone && \
     mkfontscale && mkfontdir && fc-cache && \
+    apk del glibc-i18n && \
     echo "http://mirrors.aliyun.com/alpine/v3.5/main" > /etc/apk/repositories && \
     echo "http://mirrors.aliyun.com/alpine/v3.5/community" >> /etc/apk/repositories && \
     rm -rf /opt/jdk/*src.zip \
