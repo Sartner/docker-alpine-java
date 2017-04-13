@@ -18,7 +18,7 @@ ENV JAVA_VERSION_MAJOR=8 \
     PATH=${PATH}:/opt/jdk/bin \
     GLIBC_VERSION=2.23-r4 \
     LANG=C.UTF-8 \
-    LC_ALL=C \
+    LC_ALL=C.UTF-8 \
     TZ=Asia/Shanghai
 
 # do all in one step
@@ -30,7 +30,7 @@ RUN set -ex && \
     rm -v /tmp/*.apk && \
     ( /usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 C.UTF-8 || true ) && \
     echo "export LANG=C.UTF-8" >> /etc/profile.d/locale.sh && \
-    echo "export LC_ALL=C" >> /etc/profile.d/locale.sh && \
+    echo "export LC_ALL=C.UTF-8" >> /etc/profile.d/locale.sh && \
     echo "export JAVA_HOME=/opt/jdk" >> /etc/profile.d/java.sh && \
     echo "export PATH=/opt/jdk/bin:$PATH" >> /etc/profile.d/java.sh && \
     echo "Defaults        env_keep=\"PATH JAVA_HOME LANG LC_ALL\"" >> /etc/sudoers.d/env_keep && \
