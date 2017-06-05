@@ -18,7 +18,8 @@ ENV JAVA_VERSION_MAJOR=8 \
     GLIBC_VERSION=2.23-r4 \
     LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
-    TZ=Asia/Shanghai
+    TZ=Asia/Shanghai \
+    IS_IN_CONTAINER=true
 
 # do all in one step
 RUN set -ex && \
