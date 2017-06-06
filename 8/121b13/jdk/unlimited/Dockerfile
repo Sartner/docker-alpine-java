@@ -5,7 +5,7 @@ MAINTAINER Anastas Dancha <anapsix@random.io>
 # thanks to Vladimir Krivosheev <develar@gmail.com> aka @develar for smaller image
 # and Victor Palma <palma.victor@gmail.com> aka @devx for pointing it out
 
-ADD fonts/*.tar.gz /usr/share/fonts
+ADD fonts/*.tar.gz /usr/share/fonts/
 
 # Java Version and other ENV
 ENV JAVA_VERSION_MAJOR=8 \
