@@ -76,7 +76,7 @@ RUN set -ex && \
            /opt/jdk/jre/lib/plugin.jar && \
     echo "---------- Custom changes ----------" && \
     cd /tmp && \
-    apk add curl shadow sudo coreutils procps python3 && \
+    apk add curl shadow sudo coreutils procps wget python3 && \
     echo "export LC_ALL=C.UTF-8" >> /etc/profile.d/locale.sh && \
     echo "export JAVA_HOME=/opt/jdk" >> /etc/profile.d/java.sh && \
     echo "export PATH=/opt/jdk/bin:$PATH" >> /etc/profile.d/java.sh && \
