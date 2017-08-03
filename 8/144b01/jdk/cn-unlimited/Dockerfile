@@ -95,7 +95,7 @@ RUN set -ex && \
     apk add fontconfig mkfontscale mkfontdir && \
     mkfontscale && mkfontdir && fc-cache && \
     echo "---------- Add custom user ----------" && \
-    useradd -mU ocean -s /sbin/nologin && \
+    useradd -mU ocean -u 666 -s /sbin/nologin && \
     echo "ocean ALL=(ALL) NOPASSWD: /usr/sbin/nethogs" >> /etc/sudoers.d/ocean && \
     echo "---------- Change apk repo to aliyun ----------" && \
     echo "http://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories && \
@@ -106,7 +106,7 @@ RUN set -ex && \
     echo "export EDITOR=vim" >> /etc/profile.d/custom.sh && \
     echo "export TERM=xterm-color" >> /etc/profile.d/custom.sh && \
     echo "WHITE=\"\e[1;37m\";GREEN=\"\e[1;32m\";YELLOW=\"\e[1;33m\";BULE=\"\e[1;36m\";ORANGE_BG=\"\e[1;43m\";END=\"\e[m\";" >> /etc/profile.d/custom.sh && \
-    echo "export PS1=\"\n\${WHITE}[\${END} (In-Container) \${GREEN}\u\${END}\${YELLOW}@\${END}\${BULE}\h\${END} \w \${WHITE}]\${END}\n\\$ \"" >> /etc/profile.d/custom.sh && \
+    echo "export PS1=\"\n\${WHITE}[container]\${END}\${GREEN}\u\${END}\${YELLOW}@\${END}\${BULE}\h\${END}:\w\n\\$ \"" >> /etc/profile.d/custom.sh && \
     echo "---------- delete tmp files ----------" && \
     rm -rf -v /tmp/* /var/cache/apk/*
 
