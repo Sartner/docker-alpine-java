@@ -96,7 +96,7 @@ RUN set -ex && \
     mkfontscale && mkfontdir && fc-cache && \
     echo "---------- Add custom user ----------" && \
     groupadd -g 666 ocean && \
-    useradd -m ocean -u 666 -s /sbin/nologin && \
+    useradd -m ocean -u 666 -g 666 -s /sbin/nologin && \
     echo "ocean ALL=(ALL) NOPASSWD: /usr/sbin/nethogs" >> /etc/sudoers.d/ocean && \
     echo "---------- Change apk repo to aliyun ----------" && \
     echo "http://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories && \
