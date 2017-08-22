@@ -77,7 +77,7 @@ RUN set -ex && \
            && \
     echo "---------- Custom changes ----------" && \
     cd /tmp && \
-    apk add curl shadow sudo coreutils procps wget python2 grep openssh-client nethogs sysstat && \
+    apk add curl shadow sudo coreutils procps wget python2 grep openssh-client nethogs sysstat iproute2 && \
     echo "export LC_ALL=C.UTF-8" >> /etc/profile.d/locale.sh && \
     echo "export JAVA_HOME=/opt/jdk" >> /etc/profile.d/java.sh && \
     echo "export PATH=/opt/jdk/bin:$PATH" >> /etc/profile.d/java.sh && \
